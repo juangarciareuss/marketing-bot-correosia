@@ -1,0 +1,45 @@
+name: Publicar Contenido de Marketing
+
+# Disparadores (Triggers): Cuándo se ejecuta la acción
+on:
+  # Permite ejecutarlo manualmente desde la pestaña Actions
+  workflow_dispatch:
+  # El despertador: se ejecuta en un horario programado (cron job)
+  schedule:
+    # Esto significa "a los 0 minutos de cada 6 horas" (0, 6, 12, 18 UTC)
+    - cron: '0 */6 * * *'
+
+# Trabajos (Jobs): Qué se ejecuta
+jobs:
+  publicar-post:
+    # El tipo de máquina que usaremos
+    runs-on: ubuntu-latest
+
+    # Los pasos que se ejecutarán en orden
+    steps:
+    # 1. Descarga tu código del repositorio a la máquina
+    - name: Checkout del repositorio
+      uses: actions/checkout@v3
+
+    # 2. Configura Python en la máquina
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    # 3. Instala las librerías necesarias
+    - name: Instalar dependencias
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # 4. Ejecuta tu bot de marketing
+    - name: Generar y Publicar Post
+      run: python marketer_bot.py
+      # Aquí está la magia: le pasamos los secretos al script como variables de entorno
+      env:
+        GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        API_KEY_X: ${{ secrets.API_KEY_X }}
+        API_KEY_SECRET_X: ${{ secrets.API_KEY_SECRET_X }}
+        ACCESS_TOKEN_X: ${{ secrets.ACCESS_TOKEN_X }}
+        ACCESS_TOKEN_SECRET_X: ${{ secrets.ACCESS_TOKEN_SECRET_X }}
