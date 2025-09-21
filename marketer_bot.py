@@ -62,11 +62,35 @@ def publicar_en_x(texto_del_post, twitter_keys):
             access_token_secret=twitter_keys["access_token_secret"]
         )
         response = client.create_tweet(text=texto_del_post)
-        print(f"✅ ¡Publicado en X con éxito! ID del Tweet: {response.data['id']}")
+
+        # --- INICIO DE LA MEJORA DE LOGGING ---
+        tweet_id = response.data['id']
+        tweet_url = f"https://twitter.com/jgr_soluciones/status/{tweet_id}"
+
+        print(f"✅ ¡Publicado en X con éxito! ID del Tweet: {tweet_id}")
+        print(f"🔗 URL DEL TWEET GENERADO: {tweet_url}") # <-- ESTA LÍNEA ES NUESTRA PRUEBA
+        # --- FIN DE LA MEJORA DE LOGGING ---
+
         return response
     except Exception as e:
         print(f"❌ Error al publicar en X: {e}")
         return None
+
+# --- Ejecución Principal del Script ---
+if __name__ == "__main__":
+    try:
+        twitter_keys = configurar_api()
+        
+        MI_APP_URL = "https://huggingface.co/spaces/juangarciareuss/Generador-Correos-IA"
+        
+        post_generado = generar_post_marketing(MI_APP_URL)
+        
+        if post_generado:
+            print("\n--- INICIO DEL POST GENERADO ---\n")
+            print(post_generado)
+            print("\n--- FIN DEL POST GENERADO ---\n")
+            
+            publicar_en_x(post_generado, twitter_keys)
 
 # --- Ejecución Principal del Script ---
 if __name__ == "__main__":
