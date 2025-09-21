@@ -1,0 +1,29 @@
+{
+  "plan_semanal": [
+    {
+      "dia": "Lunes",
+      "pilar": "Consejo Experto",
+      "directriz": "Implementa la hiperpersonalización con IA: Segmenta tu audiencia por comportamiento (ej. compras previas, páginas visitadas) y utiliza contenido dinámico para mostrar productos o recomendaciones relevantes. #EmailMarketing #IA #Hiperpersonalización"
+    },
+    {
+      "dia": "Martes",
+      "pilar": "Estadística Impactante",
+      "directriz": "El 75% de los usuarios prefieren interactuar con contenido dinámico en emails. ¡Dale vida a tus campañas con encuestas, GIFs, y más!  #EmailMarketing #Interactivo #Engagement"
+    },
+    {
+      "dia": "Miércoles",
+      "pilar": "Error Común",
+      "directriz": "No analizar las métricas correctas.  Más allá de la tasa de apertura, analiza el tiempo de lectura, las conversiones y el ROI para optimizar tus campañas. #EmailMarketing #Métricas #Análisis"
+    },
+    {
+      "dia": "Jueves",
+      "pilar": "Plantilla Rápida",
+      "directriz": "Comparte una plantilla simple para una encuesta interactiva dentro de un correo.  Pregúntale a tu audiencia qué tipo de contenido les gustaría recibir. #EmailMarketing #Plantilla #Interactivo"
+    },
+    {
+      "dia": "Viernes",
+      "pilar": "Caso de Uso",
+      "directriz": "Muestra un caso de éxito de una startup que implementó una estrategia omnicanal, conectando email, redes sociales y SMS para una experiencia unificada.  #EmailMarketing #Omnicanal #CasodeÉxito"
+    }
+  ]
+}
