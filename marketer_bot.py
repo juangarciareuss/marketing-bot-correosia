@@ -92,5 +92,21 @@ if __name__ == "__main__":
             
             publicar_en_x(post_generado, twitter_keys)
 
+# --- Ejecución Principal del Script ---
+if __name__ == "__main__":
+    try:
+        twitter_keys = configurar_api()
+        
+        MI_APP_URL = "https://huggingface.co/spaces/juangarciareuss/Generador-Correos-IA"
+        
+        post_generado = generar_post_marketing(MI_APP_URL)
+        
+        if post_generado:
+            print("\n--- INICIO DEL POST GENERADO ---\n")
+            print(post_generado)
+            print("\n--- FIN DEL POST GENERADO ---\n")
+            
+            publicar_en_x(post_generado, twitter_keys)
+
     except ValueError as e:
         print(f"ERROR DE CONFIGURACIÓN: {e}")
