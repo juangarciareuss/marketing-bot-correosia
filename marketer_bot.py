@@ -1,6 +1,7 @@
-# marketer_bot.py (V4.0 - El Ejecutor Estratégico)
+# marketer_bot.py (V4.2 - Estratega de Contenido 80/20)
 import os
 import json
+import random
 import google.generativeai as genai
 from dotenv import load_dotenv
 import tweepy
@@ -22,41 +23,42 @@ def configurar_api():
     return twitter_keys
 
 def leer_estrategia():
-    """Lee el plan de contenido del archivo strategy.json."""
+    # ... (Esta función no cambia)
     print("📖 Leyendo el plan estratégico desde strategy.json...")
     try:
         with open("strategy.json", "r", encoding="utf-8") as f:
             estrategia = json.load(f)
         return estrategia["plan_semanal"]
-    except FileNotFoundError:
-        raise FileNotFoundError("El archivo strategy.json no fue encontrado. Ejecuta strategist.py primero.")
-    except (json.JSONDecodeError, KeyError):
-        raise ValueError("El archivo strategy.json está corrupto o no tiene el formato esperado.")
+    except Exception as e:
+        raise ValueError(f"No se pudo leer o procesar strategy.json: {e}")
 
-# --- NUEVO PROMPT: Más simple, solo ejecuta la directriz ---
+
+# --- PROMPT ACTUALIZADO CON LÓGICA 80/20 ---
 PROMPT_REDACCION_FINAL = """
 Actúa como un Social Media Manager de clase mundial.
-Tu única tarea es tomar la siguiente directriz estratégica y convertirla en un post de alta calidad, conciso y atractivo para X (Twitter).
+Tu única tarea es tomar la siguiente directriz estratégica y convertirla en un post de alta calidad para X (Twitter).
 
 **Directriz Estratégica para Hoy:**
 ---
 {directriz_del_dia}
 ---
 
+**Tipo de Llamado a la Acción (CTA) para hoy:** {tipo_cta}
+
 **Reglas:**
 1.  Elabora la idea de la directriz. No la repitas literalmente.
 2.  El límite de X es de 280 caracteres. Sé breve.
 3.  Incluye 3-4 hashtags relevantes en español.
-4.  Añade siempre un CTA para probar la herramienta con este enlace: {app_url}
+4.  **Finaliza el post según el tipo de CTA:**
+    - Si el `tipo_cta` es **"interaccion"**, termina con una pregunta abierta relacionada con el tema para fomentar la conversación (ej: "¿Qué opinas?", "¿Cuál es tu mayor desafío con esto?").
+    - Si el `tipo_cta` es **"promocional"**, termina con un llamado a la acción claro para probar la herramienta, incluyendo el enlace: {app_url}
 """
 
-def generar_post_estrategico(directriz, url_app):
-    """Genera un post basado en la directriz estratégica del día."""
-    print(f"✍️  Generando post basado en la directriz: '{directriz[:50]}...'")
+def generar_post_estrategico(directriz, url_app, tipo_cta):
+    print(f"✍️  Generando post (CTA: {tipo_cta}) basado en la directriz: '{directriz[:50]}...'")
     try:
-        # Usamos Flash para la redacción final, es rápido y eficiente
         model = genai.GenerativeModel('gemini-1.5-flash-latest')
-        prompt_final = PROMPT_REDACCION_FINAL.format(directriz_del_dia=directriz, app_url=url_app)
+        prompt_final = PROMPT_REDACCION_FINAL.format(directriz_del_dia=directriz, app_url=url_app, tipo_cta=tipo_cta)
         response = model.generate_content(prompt_final)
         print("✅ ¡Post estratégico generado con éxito!")
         return response.text.strip()
@@ -66,8 +68,8 @@ def generar_post_estrategico(directriz, url_app):
 
 def publicar_en_x(texto_del_post, twitter_keys):
     # ... (Esta función no cambia)
+    # ...
     print("🐦 Conectando a la API de X para publicar...")
-    # ... (el resto del código es igual)
     try:
         client = tweepy.Client(
             consumer_key=twitter_keys["api_key"], consumer_secret=twitter_keys["api_key_secret"],
@@ -85,37 +87,40 @@ def publicar_en_x(texto_del_post, twitter_keys):
         traceback.print_exc()
         return None
 
-# --- Ejecución Principal ---
+# --- Ejecución Principal con LÓGICA 80/20 ---
 if __name__ == "__main__":
     try:
         twitter_keys = configurar_api()
         MI_APP_URL = "https://huggingface.co/spaces/jgr-soluciones-digitales/Generador-Correos-IA"
         
-        # 1. Leer el plan semanal
         plan_semanal = leer_estrategia()
         
-        # 2. Determinar el día de hoy y obtener la directriz correcta
-        dias_semana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
-        hoy = datetime.now().weekday() # Lunes=0, Martes=1...
+        dias_semana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"]
+        hoy = datetime.now().weekday()
+        indice_dia_plan = hoy % 5 
+        dia_del_plan = dias_semana[indice_dia_plan]
+        print(f"🗓️  Hoy es {datetime.now().strftime('%A')}. Usando la estrategia de: {dia_del_plan}")
         
-        if hoy < 5: # Solo publica de Lunes a Viernes
-            dia_actual_str = dias_semana[hoy]
-            directriz_de_hoy = next((item["directriz"] for item in plan_semanal if item["dia"] == dia_actual_str), None)
-            
-            if directriz_de_hoy:
-                # 3. Generar el post basado en la estrategia
-                post_generado = generar_post_estrategico(directriz_de_hoy, MI_APP_URL)
-                
-                if post_generado:
-                    print("\n--- INICIO DEL POST GENERADO ---\n")
-                    print(post_generado)
-                    print("\n--- FIN DEL POST GENERADO ---")
-                    # 4. Publicar el post
-                    publicar_en_x(post_generado, twitter_keys)
+        directriz_de_hoy = next((item["directriz"] for item in plan_semanal if item["dia"] == dia_del_plan), None)
+        
+        if directriz_de_hoy:
+            # --- LÓGICA 80/20 ---
+            # Se elige un número al azar. Si es 1 (20% de probabilidad), el CTA es promocional.
+            if random.randint(1, 5) == 1:
+                tipo_cta_elegido = "promocional"
             else:
-                print(f"🤷 No se encontró una directriz para el día de hoy ({dia_actual_str}).")
+                tipo_cta_elegido = "interaccion"
+            # --- FIN DE LA LÓGICA ---
+
+            post_generado = generar_post_estrategico(directriz_de_hoy, MI_APP_URL, tipo_cta_elegido)
+            
+            if post_generado:
+                print("\n--- INICIO DEL POST GENERADO ---\n")
+                print(post_generado)
+                print("\n--- FIN DEL POST GENERADO ---")
+                publicar_en_x(post_generado, twitter_keys)
         else:
-            print("🗓️  Es fin de semana. No se publicará contenido hoy.")
+            print(f"🤷 No se encontró una directriz para el día de hoy ({dia_del_plan}).")
 
     except (ValueError, FileNotFoundError) as e:
         print(f"❌ ERROR DE CONFIGURACIÓN O ESTRATEGIA: {e}")
