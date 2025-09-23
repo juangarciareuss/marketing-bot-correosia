@@ -1,34 +1,35 @@
 {
-  "plan_contenido_semanal": [
+  "conceptos_clave": [
+    "Optimización para la apertura (asunto y previsualización)",
+    "Comunicación clara y concisa (estructura y tono)",
+    "Personalización estratégica (conocimiento del público)",
+    "Integración inteligente de la IA"
+  ],
+  "plan_semanal": [
     {
       "dia": "Lunes",
-      "pilar_contenido": "Consejo de Productividad",
-      "tema": "Hiperpersonalización con IA",
-      "tweet": "🚀 #ProductividadEmail: ¿Cansado de redactar el mismo correo una y otra vez? Usa la IA para personalizar saludos, insertar información relevante del destinatario y crear plantillas dinámicas. ¡Ahorra tiempo y conecta mejor! #IA #EmailMarketing"
+      "pilar_de_contenido": "Tip de Redacción",
+      "directriz": "Explicar cómo escribir líneas de asunto irresistibles que generen curiosidad sin caer en el clickbait, utilizando ejemplos concretos de asuntos efectivos e inefectivos y  enfatizando la importancia de la brevedad y la claridad."
     },
     {
       "dia": "Martes",
-      "pilar_contenido": "Tip de Redacción",
-      "tema": "Claridad y Brevedad (KISS)",
-      "tweet": "✍️ #TipRedacciónEmail: ¡KISS! (Keep It Short and Simple). Ve al grano, evita la jerga y usa un lenguaje claro y conciso. Tus lectores te lo agradecerán.  #EmailMarketing #RedacciónPersuasiva"
+      "pilar_de_contenido": "Error a Evitar",
+      "directriz": "Mostrar los errores comunes al personalizar correos electrónicos, como la  impersonalidad o la  información incorrecta del cliente.  Enfatizar la importancia de la  investigación y segmentación precisa del público objetivo para una  personalización efectiva,  ofreciendo ejemplos de  mala y buena práctica."
     },
     {
       "dia": "Miércoles",
-      "pilar_contenido": "Error a Evitar",
-      "tema": "Diseño No Responsive",
-      "tweet": "❌ #ErrorEmail: ¡No ignores el móvil!  Un correo electrónico que no se visualiza bien en dispositivos móviles es una oportunidad perdida. Prioriza el diseño responsive para asegurar una buena experiencia de usuario. #EmailMarketing #DiseñoResponsive"
+      "pilar_de_contenido": "Consejo de Productividad",
+      "directriz": "Presentar las herramientas de IA como asistentes para la redacción de correos electrónicos,  centrándose en cómo  aprovecharlas para optimizar el tiempo  y mejorar la calidad,  sin depender completamente de ellas.  Mostrar ejemplos de uso de IA para  generar ideas, corregir la gramática y mejorar el tono."
     },
     {
       "dia": "Jueves",
-      "pilar_contenido": "Frase Ganadora",
-      "tema": "Llamada a la acción clara",
-      "tweet": "✨ #FraseGanadoraEmail:  En lugar de \"Más información\", prueba frases como \"Descubre cómo\", \"Descarga ahora\" o \"Reserva tu plaza\". Una llamada a la acción clara y concisa impulsa la conversión. #EmailMarketing #Copywriting"
+      "pilar_de_contenido": "Frase Ganadora",
+      "directriz": "Compartir una frase concisa e impactante que resuma la importancia de la  claridad y concisión en la  comunicación por correo electrónico.  Ejemplos:  \"La claridad es cortesía en el email\" o \"Un email conciso, un mensaje efectivo\"."
     },
     {
       "dia": "Viernes",
-      "pilar_contenido": "Caso de Uso",
-      "tema": "IA para segmentación de audiencia",
-      "tweet": "💡 #CasoDeUsoIA:  Segmenta tu audiencia con IA. Analiza datos demográficos y comportamientos para enviar el mensaje correcto a la persona correcta. ¡Maximiza el impacto de tus campañas de email marketing! #IA #EmailMarketing #Segmentación"
+      "pilar_de_contenido": "Caso de Uso",
+      "directriz": "Presentar un caso de estudio ficticio o real que demuestre cómo la  combinación de una línea de asunto atractiva, un  tono profesional y conversacional, una estructura clara y concisa, y la  personalización  resultaron en  un aumento de la tasa de apertura, clics  o conversiones.  Incluir datos concretos para ilustrar el impacto."
     }
   ]
 }
