@@ -1,29 +1,34 @@
 {
-  "plan_semanal": [
+  "plan_contenido_semanal": [
     {
       "dia": "Lunes",
-      "pilar": "Consejo Experto",
-      "directriz": "Aprovecha la IA para segmentar tu audiencia de email y personaliza el contenido de tus correos.  Crea mensajes específicos para cada grupo, ofreciendo contenido relevante que resuene con sus intereses. #EmailMarketing #IA #Startups"
+      "pilar_contenido": "Consejo de Productividad",
+      "tema": "Hiperpersonalización con IA",
+      "tweet": "🚀 #ProductividadEmail: ¿Cansado de redactar el mismo correo una y otra vez? Usa la IA para personalizar saludos, insertar información relevante del destinatario y crear plantillas dinámicas. ¡Ahorra tiempo y conecta mejor! #IA #EmailMarketing"
     },
     {
       "dia": "Martes",
-      "pilar": "Estadística Impactante",
-      "directriz": "Las campañas de email marketing interactivas tienen un 30% más de tasa de clics que los correos electrónicos estáticos. ¡Incorpora encuestas, cuestionarios y GIFs para aumentar el engagement! #EmailMarketing #Interactividad #Startups"
+      "pilar_contenido": "Tip de Redacción",
+      "tema": "Claridad y Brevedad (KISS)",
+      "tweet": "✍️ #TipRedacciónEmail: ¡KISS! (Keep It Short and Simple). Ve al grano, evita la jerga y usa un lenguaje claro y conciso. Tus lectores te lo agradecerán.  #EmailMarketing #RedacciónPersuasiva"
     },
     {
       "dia": "Miércoles",
-      "pilar": "Error Común",
-      "directriz": "Un error común en email marketing es enfocarse solo en la venta.  Ofrece contenido de valor como ebooks, webinars y tips para construir relaciones y fidelizar clientes.  #EmailMarketing #ContenidoDeValor #Startups"
+      "pilar_contenido": "Error a Evitar",
+      "tema": "Diseño No Responsive",
+      "tweet": "❌ #ErrorEmail: ¡No ignores el móvil!  Un correo electrónico que no se visualiza bien en dispositivos móviles es una oportunidad perdida. Prioriza el diseño responsive para asegurar una buena experiencia de usuario. #EmailMarketing #DiseñoResponsive"
     },
     {
       "dia": "Jueves",
-      "pilar": "Plantilla Rápida",
-      "directriz": "Plantilla para un email omnicanal:  \"¡No te pierdas nuestra última actualización! Lee más en nuestro blog [enlace al blog]. También, síguenos en Instagram para contenido exclusivo [enlace a Instagram].\" #EmailMarketing #Omnicanal #Startups"
+      "pilar_contenido": "Frase Ganadora",
+      "tema": "Llamada a la acción clara",
+      "tweet": "✨ #FraseGanadoraEmail:  En lugar de \"Más información\", prueba frases como \"Descubre cómo\", \"Descarga ahora\" o \"Reserva tu plaza\". Una llamada a la acción clara y concisa impulsa la conversión. #EmailMarketing #Copywriting"
     },
     {
       "dia": "Viernes",
-      "pilar": "Caso de Uso",
-      "directriz": "Caso de éxito: Una startup de SaaS incrementó sus conversiones en un 20% implementando la hiperpersonalización en sus emails.  Segmentaron su audiencia y enviaron mensajes específicos con ofertas personalizadas. #EmailMarketing #Hiperpersonalización #Startups"
+      "pilar_contenido": "Caso de Uso",
+      "tema": "IA para segmentación de audiencia",
+      "tweet": "💡 #CasoDeUsoIA:  Segmenta tu audiencia con IA. Analiza datos demográficos y comportamientos para enviar el mensaje correcto a la persona correcta. ¡Maximiza el impacto de tus campañas de email marketing! #IA #EmailMarketing #Segmentación"
     }
   ]
 }
